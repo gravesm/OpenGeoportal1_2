@@ -730,8 +730,11 @@ org.OpenGeoPortal.UserInterface.prototype.adjustTableLength = function(tableID){
 };
 
 org.OpenGeoPortal.UserInterface.prototype.toggleSearch = function(thisObj){
+	var keywords;
 	var thisID = jQuery(thisObj).attr('id');
 	if (thisID == 'moreSearchOptions'){
+		keywords = jQuery("#basicSearchTextField").val();
+		keywords.indexOf(this.searchText) != -1 || jQuery("#advancedKeywordText").val(keywords);
 		  jQuery('#basicSearchBox').animate(
     			  {height: 'hide'},
     			  {queue: false, duration: 0}
@@ -741,6 +744,9 @@ org.OpenGeoPortal.UserInterface.prototype.toggleSearch = function(thisObj){
     			  {queue: false, duration: 0}
     		  );
 	} else if (thisID == 'lessSearchOptions'){
+		keywords = jQuery("#advancedKeywordText").val();
+		jQuery("#basicSearchTextField").val(keywords);
+		this.clearInput("advancedSearchForm");
 		  jQuery('#basicSearchBox').animate(
     			  {height: 'show'},
     			  {queue: false, duration: 0}
