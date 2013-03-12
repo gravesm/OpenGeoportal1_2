@@ -1775,7 +1775,7 @@ org.OpenGeoPortal.LayerTable = function(userDiv, tableName){
 	    var selectedTopic = topicsElement.filter(":checked").val();
 	    // first topic says "Select a topic" 
 	    var titleTopic = topicsElement.first().val();
-	    if (selectedTopic != titleTopic)
+	    if (selectedTopic && (selectedTopic != titleTopic))
 	    {
 	    	// here if the user has actually selected a topic from the list
 	    	// clean-up UI string and use it for search
