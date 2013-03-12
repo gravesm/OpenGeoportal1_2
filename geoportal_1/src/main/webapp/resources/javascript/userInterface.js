@@ -362,7 +362,7 @@ org.OpenGeoPortal.UserInterface.prototype.styledSelect = function(divId, paramOb
 	var selectElement = jQuery('#' + divId);
 	selectElement.addClass("styledDropdown");
 	
-	var selectHtml = '<button id="' + divId + 'Select" class="styledButton styledSelect" title="' + paramObj.text + '">';
+	var selectHtml = '<button type="button" id="' + divId + 'Select" class="styledButton styledSelect" title="' + paramObj.text + '">';
 	selectHtml += '<span class="styledSelectText">' + paramObj.text;
 	selectHtml += '</span><img class="styledSelectArrow" src="' + this.getImage('arrow_down.png') + '">';
 	selectHtml += '</button>';
