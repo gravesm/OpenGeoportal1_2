@@ -376,17 +376,13 @@ org.OpenGeoPortal.UserInterface.prototype.styledSelect = function(divId, paramOb
 	jQuery("#" + divId + "Select .styledSelectText").width(jQuery("#" + divId).width() - jQuery("#" + divId + "Select .styledSelectArrow").width() - 39);
 	jQuery("#" + divId + "Menu").buttonset().addClass("raised").hide();
 	//jQuery("#sourceCheckMenu").hide();
-	selectElement.mouseleave(function(){
-		jQuery("#" + divId + "Menu").hide();
+	selectElement
+		.delegate("button", "click", function() {
+			jQuery(this).next().toggle();
+		})
+		.delegate("input[type=radio]", "click", function() {
+			jQuery(this).closest(".styledSelectMenu").toggle();
 		});
-	selectElement.click(function(){
-		var menu = jQuery("#" + divId + "Menu");
-		if (menu.css("display") == "none"){
-			menu.show();
-		} else {
-			menu.hide();
-		}
-	});
 };
 
 /**
