@@ -475,9 +475,6 @@ org.OpenGeoPortal.LayerTable = function(userDiv, tableName){
 		  //debug
 		try{
 			//set the previewCount variable, so we know that a layer has been expanded before
-      	if (typeof org.OpenGeoPortal.layerState.previewCount == "undefined"){
-        	org.OpenGeoPortal.layerState.previewCount = true;
-       	}
 		var rowNode = jQuery(thisObj).closest('tr');
 
 	      //test here to see if the next row is a tools row....then we can deal 
@@ -915,12 +912,12 @@ org.OpenGeoPortal.LayerTable = function(userDiv, tableName){
 			tableObj.fnAddData(tableData);
 			var rowOne = tableObj.fnGetNodes(0);
 	        var layerState = org.OpenGeoPortal.layerState;
-        	if (typeof layerState.previewCount == "undefined"){
-        		jQuery(rowOne).find('img').first().trigger('click');
-        		layerState.previewCount = true;
-       		} else {
-       			that.callbackExpand();
-       		}
+        	jQuery(".colExpand img").each(function() {
+                if (jQuery(this).attr("src").indexOf("arrow_down") != -1) {
+                    jQuery(this).trigger("click");
+                }
+            });
+            jQuery(rowOne).find("img").first().trigger("click");
 			jQuery(".previewedLayer").removeClass('previewSeparator');
 			jQuery(".previewedLayer").last().addClass('previewSeparator');
 			tableObj.fnDraw();
