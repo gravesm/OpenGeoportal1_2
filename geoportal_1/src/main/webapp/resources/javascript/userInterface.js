@@ -138,6 +138,7 @@ org.OpenGeoPortal.UserInterface = function(){
 			jQuery("#sortDropdownMenu input").first().trigger("click");
 			jQuery("#sortDropdownMenu label").removeClass("ui-state-active")
 				.first().addClass("ui-state-active");
+			logSearch();
 			that.searchSubmit();
 		});
 
@@ -168,6 +169,26 @@ org.OpenGeoPortal.UserInterface = function(){
 				jQuery(".styledDropdown button").next().hide();
 			}
 		});
+
+		var logSearch = function() {
+			var user, type, extent, keyword;
+
+			user = that.login.userId;
+			type = org.OpenGeoPortal.Utility.whichSearch().type;
+			extent = org.OpenGeoPortal.map.getExtent().transform(
+				new OpenLayers.Projection("EPSG:900913"),
+				new OpenLayers.Projection("EPSG:4326"))
+			.toString();
+
+			if (type == "basicSearch") {
+				keyword = jQuery("#basicSearchTextField").val();
+				that.logEvent("Basic search", keyword, user, extent);
+			} else if (type == "advancedSearch") {
+				keyword = jQuery("#advancedKeywordText").val();
+				that.logEvent("Advanced search", keyword, user, extent);
+			}
+		}
+
 	    //needs to check if the input has focus 
 		jQuery("input#geosearch").val(this.geocodeText);
 	    jQuery("input#geosearch").hover(function(){
@@ -1318,6 +1339,17 @@ org.OpenGeoPortal.UserInterface.prototype.requestDownloadSuccess = function(data
 org.OpenGeoPortal.UserInterface.prototype.requestDownload = function(requestObj){
 	var that = this;
 	jQuery("#downloadDialog").dialog( "option", "disabled", true );
+
+	/**
+	 * Log requestObj.layers
+	 */
+	var that = this;
+	var extent = org.OpenGeoPortal.map.getExtent().transform(
+				new OpenLayers.Projection("EPSG:900913"),
+				new OpenLayers.Projection("EPSG:4326"))
+			.toString();
+	that.logEvent("Layer download", requestObj.layers, that.login.userId, extent);
+
 	if (typeof _gaq != "undefined")
 		_gaq.push(["_trackEvent", "download", requestObj.layerNumber]);
 	delete requestObj.layerNumber;
@@ -2364,3 +2396,16 @@ org.OpenGeoPortal.UserInterface.prototype.maximizeDialog = function(dialogId){
 		//>>> jQuery("#geoCommonsExportDialog").dialog("option", "position", jQuery("#geoCommonsExportDialog").data("maxPosition"))
 };
 
+org.OpenGeoPortal.UserInterface.prototype.logEvent = function(event, data, user, extent) {
+	var data,
+		url = this.config.getStatServiceUrl();
+
+	if (url) {
+		data = {
+			action: event,
+			note: data,
+			extent: extent
+		};
+		jQuery.get(url, data);
+	}
+}

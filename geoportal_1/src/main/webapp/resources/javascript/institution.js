@@ -119,6 +119,7 @@ org.OpenGeoPortal.InstitutionInfo.requestInfo = function(){
 			org.OpenGeoPortal.InstitutionInfo.institutionSpecificCss = data["config"]["institutionSpecificCss"];
 			org.OpenGeoPortal.InstitutionInfo.institutionSpecificJavaScript = data["config"]["institutionSpecificJavaScript"];
 			org.OpenGeoPortal.InstitutionInfo.institutionSpecificGoogleAnalyticsId = data["config"]["googleAnalyticsId"];
+			org.OpenGeoPortal.InstitutionInfo.statServiceUrl = data['config']['statServiceUrl'];
 			org.OpenGeoPortal.InstitutionInfo.Config = institutions;
 			org.OpenGeoPortal.InstitutionInfo.homeInstitution = data["config"]["homeInstitution"];
 		},
@@ -130,6 +131,10 @@ org.OpenGeoPortal.InstitutionInfo.requestInfo = function(){
 	  };
 	jQuery.ajax(params);
 };
+
+org.OpenGeoPortal.InstitutionInfo.getStatServiceUrl = function() {
+	return org.OpenGeoPortal.InstitutionInfo.statServiceUrl;
+}
 
 org.OpenGeoPortal.InstitutionInfo.imagePath = org.OpenGeoPortal.Utility.ImageLocation;
 
