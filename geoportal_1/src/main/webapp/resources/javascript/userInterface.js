@@ -121,25 +121,7 @@ org.OpenGeoPortal.UserInterface = function(){
     		width: 745,
     		autoOpen: false		
 		});
-		jQuery("#userGuideLink").click(function(){
-			if (jQuery("#userGuide").length == 0){
-				jQuery.get(that.jspfDir + "userGuide.jspf", function(data){
-					jQuery("body").append(data);
-					jQuery("#userGuide").dialog({
-						zIndex: 2999,
-						title: "USER GUIDE",
-						resizable: true,
-						height: 425,
-						width: 745,
-						autoOpen: false	
-					});
-					that.anchorsToNiceScroll("userGuide", {top: -10, left: -30});
-					jQuery('#userGuide').dialog("open");
-				});
-			} else {
-				jQuery('#userGuide').dialog("open");
-			}
-		});
+
 		//buttons
 		this.createBasemapMenu();
 		this.createDataTypesMenu();
