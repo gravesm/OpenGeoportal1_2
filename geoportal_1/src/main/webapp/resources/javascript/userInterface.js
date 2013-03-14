@@ -148,6 +148,17 @@ org.OpenGeoPortal.UserInterface = function(){
 		this.createSortMenu();
 		this.createColumnsMenu();
 
+		/**
+		 * Callback handles basic/advanced search form submission.
+		 */
+		jQuery(".searchBox").delegate("form", "submit", function(e) {
+			e.preventDefault();
+			jQuery("#sortDropdownMenu input").first().trigger("click");
+			jQuery("#sortDropdownMenu label").removeClass("ui-state-active")
+				.first().addClass("ui-state-active");
+			that.searchSubmit();
+		});
+
 		jQuery("#basicSearchTextField").val(this.searchText).focus();
 		jQuery("#basicSearchTextField").focusin(function(){
 			var current = jQuery(this);
@@ -416,12 +427,14 @@ org.OpenGeoPortal.UserInterface.prototype.createSortMenu = function() {
 	var buttonHtml = defaultField; 
 	jQuery(".sortDropdownSelect > span > span").html(buttonHtml);
 	var that = this;
-	jQuery("#sortDropdownMenu span.ui-button-text").bind("click", function(){
-		var selectedField = jQuery(this).closest("label").next().val();
-		var buttonHtml = fields[selectedField].displayName;
-		jQuery("#sortDropdownSelect > span > span").html(buttonHtml);
-		that.chooseSort(selectedField);
-	});
+	jQuery("#sortDropdownMenu").delegate("input", "click", function(e) {
+		var sort = jQuery(this).val(),
+			label = fields[sort].displayName;
+		jQuery(this).closest("div").find("input").attr("checked", false);
+		jQuery(this).attr("checked", true);
+		jQuery("#sortDropdownSelect > span > span").html(label);
+		that.chooseSort(sort);
+ 	});
 	jQuery("#sortDropdownSelect").addClass("subHeaderDropdownSelect");
 };
 
