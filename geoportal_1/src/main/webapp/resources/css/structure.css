@@ -586,6 +586,10 @@ button.form-button {
     font-size: 11px;
 }
 
+button.form-button:hover {
+	color: #417DC1;
+}
+
 .searchFormRow {
 	/*height: 27px;*/
 	line-height: 27px;
