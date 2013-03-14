@@ -2,8 +2,25 @@
 	<h1><%@include file="institutionWelcome.jspf"%></h1>
 	<p>
 	Search, discover, preview, and retrieve geospatial data from multiple repositories
-	</p> 
-
+	</p>
+  <p>
+    MIT GIS Services maintains an international collection of GIS datasets covering a variety of information types, including:
+    <ul>
+            <li>US census data</li>
+            <li>Elevation</li>
+            <li>Transportation</li>
+            <li>Hydrography (water)</li>
+            <li>Administrative boundaries</li>
+            <li>Building outlines</li>
+            <li>Parcel/tax lot boundaries with detailed assessor property data</li>
+            <li>Land use/ land cover</li>
+            <li>Demographics</li>
+            <li>Digital topographic maps</li>
+            <li>Satellite imagery</li>
+            <li>Aerial photography</li>
+    </ul>
+  </p>
+  <p>Other repositories searched in MIT Geoweb includes similar types of data but offer different geographic areas than what is included in MIT Geoweb.</p>
     <h2>Search</h2> 
     <p>There are two ways to search for data. The two methods can be used individually or combined for more effective search</p>
    	<ul> 	

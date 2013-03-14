@@ -26,7 +26,7 @@
     		<!--<img src="resources/media/header_searchresults.png" alt="Search Results" /> -->
     	</span>
 
-    	<span id="sortDropdownLabel">by</span>
+    	<span id="sortDropdownLabel">sorted by</span>
     	<div id="sortDropdown">
       	</div>
     	<!--<span class="sub_headerButtons">-->	
