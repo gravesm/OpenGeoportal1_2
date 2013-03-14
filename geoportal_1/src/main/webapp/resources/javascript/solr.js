@@ -1124,7 +1124,7 @@ org.OpenGeoPortal.Solr.prototype.combineQueries = function combineQueries(spatia
 	// combine queries
 	var returnValue = this.concatWith(spatialQuery, keywordQuery, "+AND+");
 	//var returnValue = this.concatWith(returnValue, topicQuery, "+AND+");
-	returnValue = this.concatWith(returnValue, topicQuery, "+AND+");
+	returnValue = this.concatWith(returnValue, topicQuery, "+OR+");
 
 	combinedQuery = returnValue;
 	return returnValue;
