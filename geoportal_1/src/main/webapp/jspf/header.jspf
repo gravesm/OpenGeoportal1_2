@@ -7,8 +7,6 @@
             <a href="resources/media/UserGuideMITOGP.pdf" target="_blank">User Guide</a>
         </span>
 		 &nbsp;&nbsp;&nbsp;
- 		<span id="highlightsLink" class="infoLinks">Highlights</span> 
-		 &nbsp;&nbsp;&nbsp;
  		<span id="headerLogin" class="infoLinks login">Login</span>
    		<div id="welcome">Welcome!</div>
    	</div>
