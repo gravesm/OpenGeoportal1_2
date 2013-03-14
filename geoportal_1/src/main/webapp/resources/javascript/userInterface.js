@@ -345,6 +345,9 @@ org.OpenGeoPortal.UserInterface = function(){
 				that.minimizeDialog(id);
 			}
 		});*/
+
+		that.promptLogin();
+
 	};
 	this.init();
 };
