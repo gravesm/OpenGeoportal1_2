@@ -178,6 +178,14 @@ org.OpenGeoPortal.UserInterface = function(){
 				current.val("");
 		    }
 		});
+
+		jQuery(document).click(function(event) {
+			var target = jQuery(event.target);
+
+			if (!target.closest(".styledDropdown").length) {
+				jQuery(".styledDropdown button").next().hide();
+			}
+		});
 	    //needs to check if the input has focus 
 		jQuery("input#geosearch").val(this.geocodeText);
 	    jQuery("input#geosearch").hover(function(){
@@ -390,6 +398,7 @@ org.OpenGeoPortal.UserInterface.prototype.styledSelect = function(divId, paramOb
 	selectElement
 		.delegate("button", "click", function() {
 			jQuery(this).next().toggle();
+			jQuery(".styleDropdown button").not(this).next().hide();
 		})
 		.delegate("input[type=radio]", "click", function() {
 			jQuery(this).closest(".styledSelectMenu").hide();
