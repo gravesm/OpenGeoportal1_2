@@ -1,18 +1,22 @@
 package org.OpenGeoPortal.Download.Methods;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Future;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.OpenGeoPortal.Download.Types.BoundingBox;
+import org.OpenGeoPortal.Download.Types.LayerRequest;
 import org.OpenGeoPortal.Solr.SolrRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Async;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -162,5 +166,12 @@ public class WfsDownloadMethod extends AbstractDownloadMethod implements PerLaye
 	public Boolean includesMetadata() {
 		return INCLUDES_METADATA;
 	}
+
+    @Override
+    @Async
+    public Future<File> download(LayerRequest currentLayer) throws Exception {
+        Future<File> outputFile = super.download(currentLayer);
+        return outputFile;
+    }
 
 }

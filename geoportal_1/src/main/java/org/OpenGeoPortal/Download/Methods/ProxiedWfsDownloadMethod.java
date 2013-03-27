@@ -1,5 +1,11 @@
 package org.OpenGeoPortal.Download.Methods;
 
+import java.io.File;
+import java.util.concurrent.Future;
+import org.OpenGeoPortal.Download.Types.LayerRequest;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.access.prepost.PreAuthorize;
+
 
 public class ProxiedWfsDownloadMethod extends
 		WfsDownloadMethod implements PerLayerDownloadMethod {
@@ -14,4 +20,13 @@ public class ProxiedWfsDownloadMethod extends
 	public void setProxyTo(String proxyTo) {
 		this.proxyTo = proxyTo;
 	};
+
+        @Async
+        @Override
+        @PreAuthorize("isAuthenticated()")
+        public Future<File> download(LayerRequest currentLayer) throws Exception {
+            Future<File> outputFile = super.download(currentLayer);
+            return outputFile;
+        }
+
 }
