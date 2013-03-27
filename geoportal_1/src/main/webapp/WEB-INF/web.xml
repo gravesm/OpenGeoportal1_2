@@ -5,17 +5,18 @@
 		<welcome-file>openGeoPortalHome.jsp</welcome-file>
 	</welcome-file-list>
 	
- <context-param>
-  		<param-name>contextConfigLocation</param-name>
-  		<param-value>/WEB-INF/applicationContext.xml /WEB-INF/appServlet-servlet.xml /WEB-INF/security-app-context.xml</param-value>
-	</context-param>
-<filter>
-   <filter-name>springSecurityFilterChain</filter-name>
-    	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml /WEB-INF/appServlet-servlet.xml /WEB-INF/shibboleth-security-context.xml</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>filterChainProxy</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
 
 	<filter-mapping>
-  		<filter-name>springSecurityFilterChain</filter-name>
+        <filter-name>filterChainProxy</filter-name>
   		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<listener>  
