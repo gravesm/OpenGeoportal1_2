@@ -28,9 +28,13 @@ org.OpenGeoPortal.LogIn = function(institution){
 	this.passwordLabel = institution + " Password:";
 	this.dialogTitle = "LOGIN";
 	
-	this.authenticationPage = org.OpenGeoPortal.InstitutionInfo.getAuthenticationPage(institution);;
-	re = /(http[s]?:\/\/[^/]+)\//
-	this.ogpBase = this.authenticationPage.match(re)[1];
+	this.authenticationPage = org.OpenGeoPortal.InstitutionInfo.getAuthenticationPage(institution);
+	var re = /(http[s]?:\/\/[^/]+)\//
+	var ogpBase = this.authenticationPage.match(re);
+	if (ogpBase) {
+		this.ogpBase = ogpBase[1];
+	}
+
 	//this.responseObject = null;
 	// userId is null if no user is logged in
 	// when non-null, it is the id of the logged in user
