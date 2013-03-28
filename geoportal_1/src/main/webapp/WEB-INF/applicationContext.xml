@@ -82,10 +82,15 @@
    		<property name="proxyTo" value="${ogp.proxyToWFS}"/>
   </bean>
   
-  <bean id="downloadMethod.kmlReflector" class="org.OpenGeoPortal.Download.Methods.KmlDownloadMethod" scope="prototype">
-   		<property name="httpRequester" ref="httpRequester.generic"/>
-  </bean>
-  
+    <bean id="downloadMethod.kmlReflector" class="org.OpenGeoPortal.Download.Methods.KmlMITDownloadMethod" scope="prototype">
+        <property name="httpRequester" ref="httpRequester.generic"/>
+    </bean>
+
+    <bean id="downloadMethod.kmlReflector.proxied" class="org.OpenGeoPortal.Download.Methods.ProxiedKmlMITDownloadMethod" scope="prototype">
+        <property name="httpRequester" ref="httpRequester.generic"/>
+        <property name="proxyTo" value="${ogp.proxyToWMS}" />
+    </bean>
+
   <bean id="downloadMethod.wcs" class="org.OpenGeoPortal.Download.Methods.WcsDownloadMethod" scope="prototype">
    		<property name="httpRequester" ref="httpRequester.generic"/>
   </bean>
@@ -125,6 +130,9 @@
   <bean id="layerDownloader.kml.reflector" class="org.OpenGeoPortal.Download.PerLayerDownloader" scope="prototype">
   		<property name="perLayerDownloadMethod" ref="downloadMethod.kmlReflector"/>
   </bean>
+    <bean id="layerDownloader.kml.reflector.proxied" class="org.OpenGeoPortal.Download.PerLayerDownloader" scope="prototype">
+        <property name="perLayerDownloadMethod" ref="downloadMethod.kmlReflector.proxied" />
+    </bean>
   <!-- MIT specific-->
   <bean id="layerDownloader.all.MIT" class="org.OpenGeoPortal.Download.PerLayerDownloader" scope="prototype">
         <property name="perLayerDownloadMethod" ref="downloadMethod.allPublic.MIT"/>
