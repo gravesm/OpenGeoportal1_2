@@ -40,11 +40,13 @@ public abstract class AbstractDownloadMethod {
 	public abstract Set<String> getExpectedContentType();
 	
 	public Boolean expectedContentTypeMatched(String foundContentType){
-		if (getExpectedContentType().contains(foundContentType)){
-			return true;
-		} else {
-			return false;
-		}
+            Set<String> types = getExpectedContentType();
+            for (String type: types) {
+                if (foundContentType.toLowerCase().contains(type)) {
+                    return true;
+                }
+            }
+            return false;
 	}
 	
 	@Async
