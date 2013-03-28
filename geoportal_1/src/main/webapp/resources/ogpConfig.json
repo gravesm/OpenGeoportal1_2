@@ -8,7 +8,7 @@
         "statServiceUrl": "",
         "search": {
             "serviceType": "solr",
-            "serviceAddress": "/solr/"
+            "serviceAddress": "http://delisle.mit.edu/solr/select"
         },
         "institutions": {
             "MIT": {
@@ -17,11 +17,12 @@
                     "accessLevel": [
                         "restricted"
                     ],
-                    "wms": "restricted/wms"
+                    "wms": "restricted/wms",
+                    "wfs": "restricted/wfs"
                 },
                 "login": {
                     "loginType": "iframe",
-                    "authenticationPage": ""
+                    "authenticationPage": "https://delisle.mit.edu/mitogp/login/"
                 },
                 "graphics": {
                     "sourceIcon": {
