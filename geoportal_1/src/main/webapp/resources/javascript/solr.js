@@ -152,7 +152,14 @@ org.OpenGeoPortal.Solr.prototype.getServerPort = function getServerPort()
 	return "executeQuery.jsp";
 };*/
 
-org.OpenGeoPortal.Solr.prototype.DataType = {Raster: "Raster", PaperMap: "Paper+Map", Point: "Point", Line: "Line", Polygon: "Polygon"};
+org.OpenGeoPortal.Solr.prototype.DataType = {
+    Raster: "Raster",
+    PaperMap: "Paper+Map",
+    Point: "Point",
+    Line: "Line",
+    Polygon: "Polygon",
+    LibraryRecord: "LibraryRecord"
+};
 
 
 // set the data types to search for, vector is shorthand for point, line and polygon
