@@ -8,7 +8,7 @@
         "statServiceUrl": "",
         "search": {
             "serviceType": "solr",
-            "serviceAddress": "http://delisle.mit.edu/solr/select"
+            "serviceAddress": "http://arrowsmith.mit.edu/solr/select"
         },
         "institutions": {
             "MIT": {
@@ -22,7 +22,7 @@
                 },
                 "login": {
                     "loginType": "iframe",
-                    "authenticationPage": "https://delisle.mit.edu/mitogp/login/"
+                    "authenticationPage": "https://arrowsmith.mit.edu/mitogp/login/"
                 },
                 "graphics": {
                     "sourceIcon": {

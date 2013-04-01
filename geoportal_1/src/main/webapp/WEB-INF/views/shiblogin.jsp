@@ -5,7 +5,7 @@
 <%
     String institution = "MIT";
     String username = null;
-    String url = "http://localhost"; //set to OGP host
+    String url = "http://arrowsmith.mit.edu"; //set to OGP host
     url += request.getContextPath() + "/openGeoPortalHome.jsp";
 
 %>
