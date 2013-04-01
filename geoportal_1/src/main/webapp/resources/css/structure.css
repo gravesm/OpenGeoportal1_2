@@ -418,6 +418,15 @@ span.infoLinks:hover {
 	text-decoration: none;
 }
 
+#gettingStartedTab {
+    overflow: scroll;
+}
+
+#loginDialog {
+    min-width: 700px;
+    min-height: 600px;
+}
+
 .sub_header {
 	height: 25px;
 	line-height: 25px;

@@ -59,8 +59,8 @@ org.OpenGeoPortal.LogIn = function(institution){
 			'</table></form>';
 		} else if (this.TYPE == "iframe"){
 			dialogContent = '<form><table>' +
-			'<iframe  id="loginIframe"  frameborder="0"  vspace="0"  hspace="0"  marginwidth="2"  marginheight="2" width="700"  ' +
-			'height="600"  src="' + this.authenticationPage + '"></iframe></table></form>';
+			'<iframe  id="loginIframe"  frameborder="0"  vspace="0"  hspace="0"  marginwidth="2"  marginheight="2" width="700px"  ' +
+			'height="600px"  src="' + this.authenticationPage + '"></iframe></table></form>';
 		}
 		if (message != null) {
 			dialogContent = dialogContent + '<br/><span class="warning">' + message + "</span>";
