@@ -2233,6 +2233,8 @@ org.OpenGeoPortal.LayerTable.TableLayerState = function(){
 //write a getter and a setter for this object?
 //******Table Specific
 org.OpenGeoPortal.LayerTable.TableHeadings = function(thisObj){
+    var that = this;
+
 	var defaultHeadings = {
 			"LayerId": {"ajax": true, "resizable": false, "organize": false, "columnConfig": 
 				{"sName": "LayerId", "sTitle": "LayerId", "bVisible": false, "aTargets": [ 0 ], "bSortable": false}},
@@ -2242,9 +2244,32 @@ org.OpenGeoPortal.LayerTable.TableHeadings = function(thisObj){
 			"expandControls": {"ajax": false, "resizable": false, "organize": false, "columnConfig": 
 			            {"sName": "expandControls", "sTitle": "", "bVisible": true, "aTargets": [ 2 ], "sClass": "colExpand", "sWidth": "8px", "bSortable": false,
 							"fnRender": function(oObj){return thisObj.getExpandIcon(oObj);}}},  
-			"Save": {"ajax": false, "resizable": false, "organize": false, "columnConfig": 
-		                {"sName": "Save", "sTitle": "<img src=\"resources/media/shoppingcart.png\" alt=\"Add to cart\" title=\"Add layers to your cart for download.\" />", "bVisible": true, "aTargets": [ 3 ], "sClass": "colSave", "sWidth": "19px", "bSortable": false,
-		              		"fnRender": function(oObj){return thisObj.getSaveControl(oObj);}}},
+            "Save": {
+                "ajax": false,
+                "resizable": false,
+                "organize": false,
+                "columnConfig": {
+                    "sName": "Save",
+                    "sTitle": "<img src=\"resources/media/shoppingcart.png\" alt=\"Add to cart\" title=\"Add layers to your cart for download.\" />",
+                    "bVisible": true,
+                    "aTargets": [ 3 ],
+                    "sClass": "colSave",
+                    "sWidth": "19px",
+                    "bSortable": false,
+                    "fnRender": function(obj) {
+                        var datatype,
+                            row = obj;
+
+                        datatype = obj.aData[that.getColumnIndex("DataType")];
+
+                        if (datatype.toLowerCase() == "libraryrecord") {
+                            return thisObj.getMetadataIcon(obj);
+                        }
+
+                        return thisObj.getSaveControl(obj);
+                    }
+                }
+            },
 		    "score": {"ajax": true, "resizable": true, "minWidth": 27, "currentWidth": 27, "organize": true, "displayName": "Relevancy", "columnConfig": 
 		                    {"sName": "score", "sTitle": "Relevancy", "bVisible": false, "aTargets": [ 4 ], "sClass": "colScore", "sWidth": "27px", "bSortable": false }},
 		     "DataType": {"ajax": true, "resizable": false, "organize": "group", "displayName": "Data Type", "columnConfig": 
