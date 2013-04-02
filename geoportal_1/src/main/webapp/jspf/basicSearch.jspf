@@ -1,8 +1,8 @@
 <div id="basicSearchBox">  
-	<form id="basicSearchForm" onsubmit="return false;">
+	<form id="basicSearchForm">
 		<div>
 			<input id="basicSearchTextField" name="basicSearchTextField" type="text" />
-			<span id="basicSearchSubmit" class="styledButtonSmall" onclick="org.OpenGeoPortal.ui.searchSubmit()">Search</span>
+			<button type="submit" id="basicSearchSubmit" class="form-button">Search</button>
     	</div>
     	<div id="basicSearchMapFilterContainer">
     		<input type="checkbox" name="mapFilterCheck" id="basicSearchMapFilter" class="mapFilterFlag" onclick="org.OpenGeoPortal.ui.mapFilterStatus(this)" value="on" checked="checked" />

@@ -28,8 +28,13 @@ org.OpenGeoPortal.LogIn = function(institution){
 	this.passwordLabel = institution + " Password:";
 	this.dialogTitle = "LOGIN";
 	
-	this.authenticationPage = org.OpenGeoPortal.InstitutionInfo.getAuthenticationPage(institution);;
-	this.ogpBase = window.location.protocol + "//" + window.location.host;
+	this.authenticationPage = org.OpenGeoPortal.InstitutionInfo.getAuthenticationPage(institution);
+	var re = /(http[s]?:\/\/[^/]+)\//
+	var ogpBase = this.authenticationPage.match(re);
+	if (ogpBase) {
+		this.ogpBase = ogpBase[1];
+	}
+
 	//this.responseObject = null;
 	// userId is null if no user is logged in
 	// when non-null, it is the id of the logged in user
@@ -54,8 +59,8 @@ org.OpenGeoPortal.LogIn = function(institution){
 			'</table></form>';
 		} else if (this.TYPE == "iframe"){
 			dialogContent = '<form><table>' +
-			'<iframe  id="loginIframe"  frameborder="0"  vspace="0"  hspace="0"  marginwidth="2"  marginheight="2" width="700"  ' +
-			'height="600"  src="' + this.authenticationPage + '"></iframe></table></form>';
+			'<iframe  id="loginIframe"  frameborder="0"  vspace="0"  hspace="0"  marginwidth="2"  marginheight="2" width="700px"  ' +
+			'height="600px"  src="' + this.authenticationPage + '"></iframe></table></form>';
 		}
 		if (message != null) {
 			dialogContent = dialogContent + '<br/><span class="warning">' + message + "</span>";

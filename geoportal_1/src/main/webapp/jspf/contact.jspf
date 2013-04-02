@@ -5,13 +5,13 @@
 
 	<div>
 		<h3>Project Management:</h3>
-		Patrick Florance, Manager of Geospatial Technology Services, UIT, Tufts University
+		Daniel Sheehan, Senior GIS Specialist, MIT Libraries
 	</div>
 
-	<div id="contactLogos"> 
-		<div class="gisLogo" title="GIS@Tufts" onclick="location.href='http://gis.tufts.edu/'">
-		</div>
-		<div class="itLogo" title="UIT" onclick="location.href='http://uit.tufts.edu/'">
-		</div>
-	</div>
+	<div id="contactLogos">
+        <div class="gisLogo" title="MIT GIS Services" onclick="location.href='http://libraries.mit.edu/gis/'">
+        </div>
+        <div class="itLogo" title="MIT" onclick="location.href='http://libraries.mit.edu/'">
+        </div>
+    </div>
 </div>

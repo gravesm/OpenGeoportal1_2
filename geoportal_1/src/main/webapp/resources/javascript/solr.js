@@ -152,7 +152,14 @@ org.OpenGeoPortal.Solr.prototype.getServerPort = function getServerPort()
 	return "executeQuery.jsp";
 };*/
 
-org.OpenGeoPortal.Solr.prototype.DataType = {Raster: "Raster", PaperMap: "Paper+Map", Point: "Point", Line: "Line", Polygon: "Polygon"};
+org.OpenGeoPortal.Solr.prototype.DataType = {
+    Raster: "Raster",
+    PaperMap: "Paper+Map",
+    Point: "Point",
+    Line: "Line",
+    Polygon: "Polygon",
+    LibraryRecord: "LibraryRecord"
+};
 
 
 // set the data types to search for, vector is shorthand for point, line and polygon
@@ -1124,7 +1131,7 @@ org.OpenGeoPortal.Solr.prototype.combineQueries = function combineQueries(spatia
 	// combine queries
 	var returnValue = this.concatWith(spatialQuery, keywordQuery, "+AND+");
 	//var returnValue = this.concatWith(returnValue, topicQuery, "+AND+");
-	returnValue = this.concatWith(returnValue, topicQuery, "+AND+");
+	returnValue = this.concatWith(returnValue, topicQuery, "+OR+");
 
 	combinedQuery = returnValue;
 	return returnValue;

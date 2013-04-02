@@ -1,16 +1,20 @@
 package org.OpenGeoPortal.Download.Methods;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Future;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.OpenGeoPortal.Download.Types.BoundingBox;
+import org.OpenGeoPortal.Download.Types.LayerRequest;
 import org.OpenGeoPortal.Solr.SolrRecord;
+import org.springframework.scheduling.annotation.Async;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -182,5 +186,11 @@ public class WcsDownloadMethod extends AbstractDownloadMethod implements PerLaye
 			return INCLUDES_METADATA;
 		}
 
+        @Override
+        @Async
+        public Future<File> download(LayerRequest currentLayer) throws Exception {
+            Future<File> outputFile = super.download(currentLayer);
+            return outputFile;
+        }
 
 }

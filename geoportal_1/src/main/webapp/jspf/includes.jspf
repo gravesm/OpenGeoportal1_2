@@ -12,6 +12,7 @@
 <script type="text/javascript" src="resources/javascript/DataTables/media/js/jquery.dataTables.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 <script type="text/javascript" src="resources/javascript/jquery.scrollTo-min.js"></script>
+<script type="text/javascript" src="resources/javascript/jquery.ba-postmessage.min.js"></script>
 <script type="text/javascript" src="resources/javascript/jquery.ba-resize.js"></script>
 <script type="text/javascript" src="resources/javascript/panZoom.js"></script>
 <script type="text/javascript" src="resources/javascript/utility.js"></script>
