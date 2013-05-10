@@ -462,11 +462,11 @@ org.OpenGeoPortal.MapController.prototype.wmsGetFeature = function(e){
 	var yMax = projPoint.lat + ybboxSize/2;
 	var layerID = this.name;
 	var searchString = "OGPID=" + layerID;
-	searchString += "&bbox=" + this.map.getExtent().toBBOX();//+ xMin + "," + yMin + "," + xMax + "," + yMax;
+	searchString += "&BBOX=" + this.map.getExtent().toBBOX();//+ xMin + "," + yMin + "," + xMax + "," + yMax;
 		//+ this.map.getExtent().toBBOX(); 
 	//geoserver doesn't like fractional pixel values
-	searchString += "&x=" + Math.round(pixel.x) + "&y=" + Math.round(pixel.y);
-	searchString += "&height=" + this.map.size.h + "&width=" + this.map.size.w;
+	searchString += "&X=" + Math.round(pixel.x) + "&Y=" + Math.round(pixel.y);
+	searchString += "&HEIGHT=" + this.map.size.h + "&WIDTH=" + this.map.size.w;
     
     var ajaxParams = {
     		type: "GET",

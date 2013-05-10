@@ -32,9 +32,9 @@ public class GetFeatureInfoController {
 	private LayerInfoRetriever layerInfoRetriever;
 
 	@RequestMapping(method=RequestMethod.GET)
-	public void getFeatureInfo(@RequestParam("OGPID") String layerId, @RequestParam("bbox") String bbox, 
-			@RequestParam("x") String xCoord,@RequestParam("y") String yCoord,
-			@RequestParam("width") String width,@RequestParam("height") String height,
+	public void getFeatureInfo(@RequestParam("OGPID") String layerId, @RequestParam("BBOX") String bbox, 
+			@RequestParam("X") String xCoord,@RequestParam("Y") String yCoord,
+			@RequestParam("WIDTH") String width,@RequestParam("HEIGHT") String height,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 	    String format = "application/vnd.ogc.gml";
