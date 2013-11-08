@@ -228,7 +228,7 @@ org.OpenGeoPortal.Solr.prototype.AdvancedKeywordString = null;
 org.OpenGeoPortal.Solr.prototype.TopicString = null;
 
 
-org.OpenGeoPortal.Solr.prototype.DataType = {Raster: "Raster", PaperMap: "Paper+Map", Point: "Point", Line: "Line", Polygon: "Polygon"};
+org.OpenGeoPortal.Solr.prototype.DataType = {Raster: "Raster", PaperMap: "Paper+Map", Point: "Point", Line: "Line", Polygon: "Polygon", LibraryRecord: "LibraryRecord"};
 
 /*
  * Helper functions
@@ -294,7 +294,7 @@ org.OpenGeoPortal.Solr.prototype.getFilter = function getFilter(columnName, valu
 		var value = values[i];
 		if (i > 0)
 			temp += "+OR+";
-		temp += columnName + ":" + value;
+		temp += columnName + ":\"" + value + "\"";
 	}
 	var filter = "fq=" + escape(temp);
 	//filter += "&pf=" + escape(columnName + ":" + values.join(" ")) + "^" + this.GenericPhraseBoost;
